@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,82 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkI-Ro-Ne5">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deI-Id-vao">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <state key="normal" title="Make Purchase">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="makePurchaseButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZEl-qs-H2Q"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lqv-mP-isB">
+                                        <rect key="frame" x="50" y="50" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="XUJ-J6-Pq4"/>
+                                            <constraint firstAttribute="height" constant="200" id="kC1-Pw-zgh"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="deI-Id-vao" firstAttribute="leading" secondItem="WkI-Ro-Ne5" secondAttribute="leading" id="3bg-Xf-cd1"/>
+                                    <constraint firstAttribute="width" constant="300" id="42O-FI-4m9"/>
+                                    <constraint firstAttribute="trailing" secondItem="deI-Id-vao" secondAttribute="trailing" id="Ogd-Uf-V3F"/>
+                                    <constraint firstItem="deI-Id-vao" firstAttribute="leading" secondItem="lqv-mP-isB" secondAttribute="leading" constant="-50" id="cah-A9-vjd"/>
+                                    <constraint firstItem="deI-Id-vao" firstAttribute="top" secondItem="WkI-Ro-Ne5" secondAttribute="top" id="isy-vd-TJE"/>
+                                    <constraint firstItem="lqv-mP-isB" firstAttribute="centerX" secondItem="deI-Id-vao" secondAttribute="centerX" id="kKT-YN-sK5"/>
+                                    <constraint firstAttribute="height" constant="300" id="uNm-st-sKx"/>
+                                    <constraint firstAttribute="bottom" secondItem="deI-Id-vao" secondAttribute="bottom" id="uQW-ir-W08"/>
+                                    <constraint firstItem="deI-Id-vao" firstAttribute="centerY" secondItem="lqv-mP-isB" secondAttribute="centerY" id="wBT-1w-fjd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="150"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cah-A9-vjd"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Elsonbaty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-Nf-uhy">
+                                <rect key="frame" x="121" y="86" width="358" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="358" id="CD2-Ge-ABk"/>
+                                    <constraint firstAttribute="height" constant="56" id="CVN-e8-2xy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="WkI-Ro-Ne5" secondAttribute="centerY" id="Q1X-yE-gXD"/>
+                            <constraint firstItem="WkI-Ro-Ne5" firstAttribute="top" secondItem="RBV-Nf-uhy" secondAttribute="bottom" constant="8" id="ZnS-EI-o8B"/>
+                            <constraint firstAttribute="centerX" secondItem="WkI-Ro-Ne5" secondAttribute="centerX" id="iDi-Ug-RKe"/>
+                            <constraint firstAttribute="centerX" secondItem="RBV-Nf-uhy" secondAttribute="centerX" constant="-0.5" id="oFE-lX-aHi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="WkI-Ro-Ne5" id="GW6-gL-m73"/>
+                        <outlet property="makePurchaseButton" destination="deI-Id-vao" id="SoU-s1-HBy"/>
+                        <outlet property="qrCodeImageView" destination="lqv-mP-isB" id="1MB-cL-Edw"/>
+                        <outlet property="titleLabel" destination="RBV-Nf-uhy" id="cKg-zb-pwE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="343" y="398"/>
         </scene>
     </scenes>
 </document>
