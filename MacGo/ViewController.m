@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 David Elsonbaty. All rights reserved.
 //
 
+#define kSecondsTimers 5*2
+
 #import "ViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
@@ -23,8 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [PFUser logOut];
-    
+//    [PFUser logOut];
     self.containerView.layer.borderWidth = 1;
     self.containerView.layer.borderColor = [[UIColor darkGrayColor] CGColor];
     
@@ -69,7 +70,7 @@
     PFObject *token = [PFObject objectWithClassName:@"Tokens"];
     token[@"user"] = [PFUser currentUser];
     token[@"active"] = @YES;
-    token[@"expiry"] = [NSDate dateWithTimeIntervalSinceNow:60*2];
+    token[@"expiry"] = [NSDate dateWithTimeIntervalSinceNow:kSecondsTimers];
     [token saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
        
         if (succeeded){
@@ -88,7 +89,7 @@
                     
                 });
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60*2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSecondsTimers * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
                     self.qrCodeImageView.image = nil;
                     self.qrCodeImageView.hidden = YES;
