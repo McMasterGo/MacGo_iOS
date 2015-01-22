@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PurchaseItemsViewController">
+            <connections>
+                <outlet property="tableView" destination="xWn-8P-Tye" id="M8N-gO-NI1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xWn-8P-Tye">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="jVI-Hl-gSQ"/>
+                        <outlet property="delegate" destination="-1" id="ExD-aB-t8G"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.047058823529411764" green="0.10196078431372549" blue="0.10588235294117647" alpha="0.95000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xWn-8P-Tye" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7LH-ps-9w9"/>
+                <constraint firstAttribute="bottom" secondItem="xWn-8P-Tye" secondAttribute="bottom" id="bbF-bO-Viu"/>
+                <constraint firstItem="xWn-8P-Tye" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bwe-RF-KDl"/>
+                <constraint firstAttribute="trailing" secondItem="xWn-8P-Tye" secondAttribute="trailing" id="lMZ-Wd-Tdd"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

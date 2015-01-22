@@ -16,6 +16,10 @@
 		55709B201A1954F7001B6B2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55709B1F1A1954F7001B6B2C /* Images.xcassets */; };
 		55709B231A1954F7001B6B2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55709B211A1954F7001B6B2C /* LaunchScreen.xib */; };
 		55709B2F1A1954F7001B6B2C /* MacGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B2E1A1954F7001B6B2C /* MacGoTests.m */; };
+		55799C471A718A3B005E94FA /* PurchaseItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55799C451A718A3B005E94FA /* PurchaseItemsViewController.m */; };
+		55799C481A718A3B005E94FA /* PurchaseItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55799C461A718A3B005E94FA /* PurchaseItemsViewController.xib */; };
+		55799C4B1A718B53005E94FA /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55799C4A1A718B53005E94FA /* ItemTableViewCell.m */; };
+		55799C4D1A718B5D005E94FA /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55799C4C1A718B5D005E94FA /* ItemTableViewCell.xib */; };
 		55E98C6F1A70CF1D00A7C858 /* PurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E98C6E1A70CF1D00A7C858 /* PurchaseTableViewCell.m */; };
 		55E98C711A70CF8100A7C858 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E98C701A70CF8100A7C858 /* PurchaseTableViewCell.xib */; };
 		A40715625E5AC246F873C92B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 227E95E607FA23104C020602 /* libPods.a */; };
@@ -49,6 +53,12 @@
 		55709B281A1954F7001B6B2C /* MacGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55709B2D1A1954F7001B6B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55709B2E1A1954F7001B6B2C /* MacGoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacGoTests.m; sourceTree = "<group>"; };
+		55799C441A718A3B005E94FA /* PurchaseItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseItemsViewController.h; sourceTree = "<group>"; };
+		55799C451A718A3B005E94FA /* PurchaseItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseItemsViewController.m; sourceTree = "<group>"; };
+		55799C461A718A3B005E94FA /* PurchaseItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseItemsViewController.xib; sourceTree = "<group>"; };
+		55799C491A718B53005E94FA /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		55799C4A1A718B53005E94FA /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		55799C4C1A718B5D005E94FA /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		55E98C6D1A70CF1D00A7C858 /* PurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseTableViewCell.h; sourceTree = "<group>"; };
 		55E98C6E1A70CF1D00A7C858 /* PurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseTableViewCell.m; sourceTree = "<group>"; };
 		55E98C701A70CF8100A7C858 /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
@@ -111,12 +121,7 @@
 				55709B171A1954F7001B6B2C /* AppDelegate.m */,
 				55709B191A1954F7001B6B2C /* ViewController.h */,
 				55709B1A1A1954F7001B6B2C /* ViewController.m */,
-				551A67C41A70C94C00BC6A51 /* AccountHistoryViewController.h */,
-				551A67C51A70C94C00BC6A51 /* AccountHistoryViewController.m */,
-				551A67C61A70C94C00BC6A51 /* AccountHistoryViewController.xib */,
-				55E98C6D1A70CF1D00A7C858 /* PurchaseTableViewCell.h */,
-				55E98C6E1A70CF1D00A7C858 /* PurchaseTableViewCell.m */,
-				55E98C701A70CF8100A7C858 /* PurchaseTableViewCell.xib */,
+				55799C411A7189E0005E94FA /* TableViewCells */,
 				55709B1C1A1954F7001B6B2C /* Main.storyboard */,
 				55709B1F1A1954F7001B6B2C /* Images.xcassets */,
 				55709B211A1954F7001B6B2C /* LaunchScreen.xib */,
@@ -149,6 +154,41 @@
 				55709B2D1A1954F7001B6B2C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55799C411A7189E0005E94FA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				55799C421A718A12005E94FA /* Account History */,
+				55799C431A718A1D005E94FA /* Purchase Info */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		55799C421A718A12005E94FA /* Account History */ = {
+			isa = PBXGroup;
+			children = (
+				551A67C41A70C94C00BC6A51 /* AccountHistoryViewController.h */,
+				551A67C51A70C94C00BC6A51 /* AccountHistoryViewController.m */,
+				551A67C61A70C94C00BC6A51 /* AccountHistoryViewController.xib */,
+				55E98C6D1A70CF1D00A7C858 /* PurchaseTableViewCell.h */,
+				55E98C6E1A70CF1D00A7C858 /* PurchaseTableViewCell.m */,
+				55E98C701A70CF8100A7C858 /* PurchaseTableViewCell.xib */,
+			);
+			name = "Account History";
+			sourceTree = "<group>";
+		};
+		55799C431A718A1D005E94FA /* Purchase Info */ = {
+			isa = PBXGroup;
+			children = (
+				55799C441A718A3B005E94FA /* PurchaseItemsViewController.h */,
+				55799C451A718A3B005E94FA /* PurchaseItemsViewController.m */,
+				55799C461A718A3B005E94FA /* PurchaseItemsViewController.xib */,
+				55799C491A718B53005E94FA /* ItemTableViewCell.h */,
+				55799C4A1A718B53005E94FA /* ItemTableViewCell.m */,
+				55799C4C1A718B5D005E94FA /* ItemTableViewCell.xib */,
+			);
+			name = "Purchase Info";
 			sourceTree = "<group>";
 		};
 		D073594DD18B2B9D7065CFEB /* Frameworks */ = {
@@ -245,6 +285,8 @@
 				55709B231A1954F7001B6B2C /* LaunchScreen.xib in Resources */,
 				551A67C81A70C94C00BC6A51 /* AccountHistoryViewController.xib in Resources */,
 				55E98C711A70CF8100A7C858 /* PurchaseTableViewCell.xib in Resources */,
+				55799C481A718A3B005E94FA /* PurchaseItemsViewController.xib in Resources */,
+				55799C4D1A718B5D005E94FA /* ItemTableViewCell.xib in Resources */,
 				55709B201A1954F7001B6B2C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,8 +340,10 @@
 			files = (
 				55709B1B1A1954F7001B6B2C /* ViewController.m in Sources */,
 				55709B181A1954F7001B6B2C /* AppDelegate.m in Sources */,
+				55799C471A718A3B005E94FA /* PurchaseItemsViewController.m in Sources */,
 				55E98C6F1A70CF1D00A7C858 /* PurchaseTableViewCell.m in Sources */,
 				55709B151A1954F7001B6B2C /* main.m in Sources */,
+				55799C4B1A718B53005E94FA /* ItemTableViewCell.m in Sources */,
 				551A67C71A70C94C00BC6A51 /* AccountHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

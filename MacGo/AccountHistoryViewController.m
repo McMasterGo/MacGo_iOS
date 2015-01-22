@@ -9,6 +9,7 @@
 #import "AccountHistoryViewController.h"
 #import "PurchaseTableViewCell.h"
 #import <Parse/Parse.h>
+#import "PurchaseItemsViewController.h"
 
 @interface AccountHistoryViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,7 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"History";
+
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [titleLabel.font fontWithSize:21];
+    titleLabel.text = @"History";
+    self.navigationItem.titleView = titleLabel;
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(didTapClose:)];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PurchaseTableViewCell" bundle:nil] forCellReuseIdentifier:@"PurchaseTableViewCell"];
@@ -38,6 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 }
 
@@ -83,6 +92,14 @@
 
 #pragma mark - UITableViewDelegate Implementation
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.row > _purchasesArray.count-1) {
+        return;
+    }
+    
+    PurchaseItemsViewController *itemsTableView = [[PurchaseItemsViewController alloc] initWithNibName:@"PurchaseItemsViewController" bundle:nil];
+    [itemsTableView setPurchaseItem:_purchasesArray[indexPath.row]];
+    [self.navigationController pushViewController:itemsTableView animated:YES];
     
 }
 
