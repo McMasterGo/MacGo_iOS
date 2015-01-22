@@ -6,19 +6,25 @@
 //  Copyright (c) 2014 David Elsonbaty. All rights reserved.
 //
 
-#define kSecondsTimers 5*2
+#define kSecondsTimers 20
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "AccountHistoryViewController.h"
 
 @interface ViewController () <PFLogInViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *makePurchaseButton;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
+
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (weak, nonatomic) IBOutlet UIButton *accountHistoryButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *currentBalanceLabel;
+
+@property (strong, nonatomic) NSTimer *closePurchaseTimer;
 
 @end
 
@@ -27,13 +33,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//   [PFUser logOut];
+    //[PFUser logOut];
+    
     self.containerView.layer.borderWidth = 2;
     self.containerView.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.refreshButton.layer.borderWidth = 2;
     self.refreshButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.accountHistoryButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.view.backgroundColor = [UIColor colorWithRed:0.05 green:0.1 blue:0.11 alpha:1];
+    
+    
+    //Set current balance label, then update and set again
+    NSNumber *balance = [PFUser currentUser][@"balance"];
+    self.currentBalanceLabel.text = [NSString stringWithFormat:@"$%.2f", [balance floatValue]];
+    [self didTapRefresh:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -80,12 +94,60 @@
     self.titleLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
 }
 
+#pragma mark - IBActions implementations
+- (IBAction)didTapRefresh:(id)sender {
+
+    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object,    NSError *error) {
+        
+        NSNumber *balance = [PFUser currentUser][@"balance"];
+        self.currentBalanceLabel.text = [NSString stringWithFormat:@"$%.2f", [balance floatValue]];
+        
+    }];
+    
+}
+- (IBAction)didTapCancel:(id)sender{
+    
+    if ([self.refreshButton.titleLabel.text isEqualToString:@"Cancel"]) {
+        
+        self.containerView.backgroundColor = [UIColor clearColor];
+        self.qrCodeImageView.image = nil;
+        self.qrCodeImageView.hidden = YES;
+        self.makePurchaseButton.hidden = NO;
+        self.containerView.layer.borderColor = [[UIColor whiteColor] CGColor];
+        self.makePurchaseButton.userInteractionEnabled = YES;
+        
+        [self.refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+        [self.refreshButton removeTarget:self action:@selector(didTapCancel:) forControlEvents:UIControlEventTouchUpInside];
+        [self.refreshButton addTarget:self action:@selector(didTapRefresh:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    
+    [_closePurchaseTimer invalidate];
+    _closePurchaseTimer = nil;
+    
+}
+
+- (IBAction)didTapAccountHistory:(id)sender {
+    
+    AccountHistoryViewController *accountHistoryVC = [[AccountHistoryViewController alloc] initWithNibName:@"AccountHistoryViewController" bundle:nil];
+    UINavigationController *navigationBar = [[UINavigationController alloc] initWithRootViewController:accountHistoryVC];
+    navigationBar.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self presentViewController:navigationBar animated:YES completion:nil];
+    
+}
+
 #pragma mark - QRCode Helpers
 - (IBAction)makePurchaseButtonClicked:(id)sender {
     
     if (![sender isKindOfClass:[UIButton class]]) {
         return;
     }
+    
+    //Set 'Refresh' Button to 'Cancel'
+    [self.refreshButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.refreshButton removeTarget:self action:@selector(didTapRefresh:) forControlEvents:UIControlEventTouchUpInside];
+    [self.refreshButton addTarget:self action:@selector(didTapCancel:) forControlEvents:UIControlEventTouchUpInside];
+    
     UIButton *button = (UIButton*)sender;
     button.userInteractionEnabled = NO;
     
@@ -101,7 +163,6 @@
             
                 UIImage *qrcode = [self generateQRCodeWithString:[token objectId] scale:200];
 
-                
                 dispatch_async(dispatch_get_main_queue(), ^{
 
                     self.containerView.backgroundColor = [UIColor whiteColor];
@@ -110,19 +171,21 @@
                     self.makePurchaseButton.hidden = YES;
                     self.containerView.layer.borderColor = [[UIColor colorWithRed:0.45 green:0.75 blue:0.49 alpha:1] CGColor];
                     
+                    _closePurchaseTimer = [NSTimer scheduledTimerWithTimeInterval:kSecondsTimers
+                                                                           target:self
+                                                                         selector:@selector(didTapCancel:)
+                                                                         userInfo:nil
+                                                                          repeats:NO];
                 });
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSecondsTimers * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-                    self.containerView.backgroundColor = [UIColor clearColor];
-                    self.qrCodeImageView.image = nil;
-                    self.qrCodeImageView.hidden = YES;
-                    self.makePurchaseButton.hidden = NO;
-                    self.containerView.layer.borderColor = [[UIColor whiteColor] CGColor];
-                    button.userInteractionEnabled = YES;
-                    
-                });
                 
+                
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSecondsTimers * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    
+//                    [self didTapCancel:nil];
+//                    
+//                });
+//                
             });
             
         }
