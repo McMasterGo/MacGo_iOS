@@ -55,7 +55,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"PurchaseItem"];
     [query whereKey:@"purchase" equalTo:purchaseItem];
-    [query orderByDescending:@"createdAt"];
+    [query orderByAscending:@"quantity"];
     [query includeKey:@"item"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.itemsArray = objects;

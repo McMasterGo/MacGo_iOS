@@ -6,17 +6,21 @@
 //  Copyright (c) 2014 David Elsonbaty. All rights reserved.
 //
 
-#define kSecondsTimers 20
+#define kSecondsTimers 120
 
-#import "ViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "ViewController.h"
 #import "AccountHistoryViewController.h"
+#import "SettingsViewController.h"
 
-@interface ViewController () <PFLogInViewControllerDelegate>
+@interface ViewController () <PFLogInViewControllerDelegate, SettingsProtocol>
+
+@property (strong, nonatomic) NSDictionary *stats;
+
+@property (weak, nonatomic) IBOutlet UIButton *titleButton;
 @property (weak, nonatomic) IBOutlet UIButton *makePurchaseButton;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
 
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
@@ -25,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentBalanceLabel;
 
 @property (strong, nonatomic) NSTimer *closePurchaseTimer;
+@property (strong, nonatomic) PFObject *token;
 
 @end
 
@@ -35,9 +40,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     //[PFUser logOut];
     
-    self.containerView.layer.borderWidth = 2;
+    self.containerView.layer.borderWidth = 1;
     self.containerView.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.refreshButton.layer.borderWidth = 2;
+    self.refreshButton.layer.borderWidth = 1;
     self.refreshButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.accountHistoryButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.view.backgroundColor = [UIColor colorWithRed:0.05 green:0.1 blue:0.11 alpha:1];
@@ -46,12 +51,22 @@
     //Set current balance label, then update and set again
     NSNumber *balance = [PFUser currentUser][@"balance"];
     self.currentBalanceLabel.text = [NSString stringWithFormat:@"$%.2f", [balance floatValue]];
-    [self didTapRefresh:nil];
+    //    [self didTapRefresh:nil];
+    
+    for (UIView *view in self.view.subviews){
+        if (view.tag >= 5) {
+            
+            view.layer.borderWidth = 2;
+            view.layer.cornerRadius = view.frame.size.height / 2;
+            view.layer.borderColor = [[UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1] CGColor];
+            
+        }
+    }
     
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-
+    
     if (![PFUser currentUser]) {
         [self showLoginView];
     }else{
@@ -71,7 +86,7 @@
     [logInViewController.logInView.passwordForgottenButton removeFromSuperview];
     [logInViewController.logInView.logInButton removeFromSuperview];
     
-    logInViewController.logInView.backgroundColor = [UIColor blackColor];
+    logInViewController.logInView.backgroundColor = [UIColor colorWithRed:0.05 green:0.1 blue:0.1 alpha:1];
     logInViewController.logInView.usernameField.backgroundColor = [UIColor clearColor];
     logInViewController.logInView.passwordField.backgroundColor = [UIColor clearColor];
     logInViewController.logInView.usernameField.textAlignment = NSTextAlignmentCenter;
@@ -81,27 +96,60 @@
     
     UILabel *logo = [[UILabel alloc] initWithFrame:logInViewController.logInView.logo.frame];
     logo.text = @"MacGo";
-    logo.font = [self.titleLabel.font fontWithSize:45];
+    logo.font = [self.titleButton.titleLabel.font fontWithSize:45];
     logo.textAlignment = NSTextAlignmentCenter;
     logo.textColor = [UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1];
     logInViewController.logInView.logo = logo;
     [self presentViewController:logInViewController animated:YES completion:nil];
     
 }
-
 - (void)populateUserInformation{
+    
     PFUser *user = [PFUser currentUser];
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
+    
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
+    NSString *account = @"Account Settings";
+    
+    NSString *buttonLabel = [NSString stringWithFormat:@"%@\n%@", fullName, account];
+    
+    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:buttonLabel];
+    [attributedTitle addAttribute:NSForegroundColorAttributeName
+                            value:[UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1]
+                            range:[buttonLabel rangeOfString:account]];
+    [attributedTitle addAttribute:NSForegroundColorAttributeName
+                            value:[UIColor whiteColor]
+                            range:[buttonLabel rangeOfString:fullName]];
+    [attributedTitle addAttribute:NSForegroundColorAttributeName
+                            value:[UIColor whiteColor]
+                            range:[buttonLabel rangeOfString:fullName]];
+    [attributedTitle addAttribute:NSFontAttributeName
+                            value:[UIFont fontWithName:@"HelveticaNeue-Light" size:12]
+                            range:[buttonLabel rangeOfString:account]];
+    
+    self.titleButton.titleLabel.numberOfLines = 0;
+    self.titleButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.titleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+    
+    NSNumber *balance = [PFUser currentUser][@"balance"];
+    self.currentBalanceLabel.text = [NSString stringWithFormat:@"$%.2f", [balance floatValue]];
+    
+    
+    [PFCloud callFunctionInBackground:@"getStats" withParameters:@{@"userId" : [PFUser currentUser].objectId} block:^(id object, NSError *error) {
+        self.stats = object;
+    }];
+    
 }
 
 #pragma mark - IBActions implementations
 - (IBAction)didTapRefresh:(id)sender {
-
+    
     [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object,    NSError *error) {
-        
         NSNumber *balance = [PFUser currentUser][@"balance"];
         self.currentBalanceLabel.text = [NSString stringWithFormat:@"$%.2f", [balance floatValue]];
-        
+    }];
+    
+    [PFCloud callFunctionInBackground:@"getStats" withParameters:@{@"userId" : [PFUser currentUser].objectId} block:^(id object, NSError *error) {
+        self.stats = object;
     }];
     
 }
@@ -120,6 +168,9 @@
         [self.refreshButton removeTarget:self action:@selector(didTapCancel:) forControlEvents:UIControlEventTouchUpInside];
         [self.refreshButton addTarget:self action:@selector(didTapRefresh:) forControlEvents:UIControlEventTouchUpInside];
         
+        [_token setObject:[NSNumber numberWithBool:NO] forKey:@"active"];
+        [_token saveInBackground];
+        
     }
     
     [_closePurchaseTimer invalidate];
@@ -133,6 +184,49 @@
     UINavigationController *navigationBar = [[UINavigationController alloc] initWithRootViewController:accountHistoryVC];
     navigationBar.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self presentViewController:navigationBar animated:YES completion:nil];
+    
+}
+- (IBAction)didTapSettingsButton:(id)sender{
+    
+    SettingsViewController *settingsVC = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    settingsVC.delegate = self;
+    UINavigationController *navigationBar = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    navigationBar.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self presentViewController:navigationBar animated:YES completion:nil];
+    
+}
+
+- (IBAction)didTapOnStats:(id)sender{
+    
+    UIButton *button = (UIButton *)sender;
+    NSString *stats;
+    switch (button.tag) {
+        case 5:
+            stats = _stats[@"Junk"];
+            break;
+        case 6:
+            stats = _stats[@"Beverage"];
+            break;
+        case 7:
+            stats = _stats[@"Fruit"];
+            break;
+        case 8:
+            stats = _stats[@"Candy"];
+            break;
+        default:
+            break;
+    }
+    
+    stats = [NSString stringWithFormat:@"%@%%",stats];
+    [button setTitle:stats forState:UIControlStateNormal];
+    
+    UIImage *image = [button imageForState:UIControlStateNormal];
+    [button setImage:nil forState:UIControlStateNormal];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [button setTitle:@"" forState:UIControlStateNormal];
+        [button setImage:image forState:UIControlStateNormal];
+    });
     
 }
 
@@ -151,20 +245,20 @@
     UIButton *button = (UIButton*)sender;
     button.userInteractionEnabled = NO;
     
-    PFObject *token = [PFObject objectWithClassName:@"Tokens"];
-    token[@"user"] = [PFUser currentUser];
-    token[@"active"] = @YES;
-    token[@"expiry"] = [NSDate dateWithTimeIntervalSinceNow:kSecondsTimers];
-    [token saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-       
+    _token = [PFObject objectWithClassName:@"Tokens"];
+    _token[@"user"] = [PFUser currentUser];
+    _token[@"active"] = @YES;
+    _token[@"expiry"] = [NSDate dateWithTimeIntervalSinceNow:kSecondsTimers];
+    [_token saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
         if (succeeded){
-         
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-                UIImage *qrcode = [self generateQRCodeWithString:[token objectId] scale:200];
-
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                
+                UIImage *qrcode = [self generateQRCodeWithString:[_token objectId] scale:200];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-
+                    
                     self.containerView.backgroundColor = [UIColor whiteColor];
                     self.qrCodeImageView.image = qrcode;
                     self.qrCodeImageView.hidden = NO;
@@ -178,14 +272,6 @@
                                                                           repeats:NO];
                 });
                 
-                
-                
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSecondsTimers * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                    
-//                    [self didTapCancel:nil];
-//                    
-//                });
-//                
             });
             
         }
@@ -229,6 +315,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Settinga Protocol
+- (void)logout{
+    [PFUser logOut];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self showLoginView];
+    }];
 }
 
 @end

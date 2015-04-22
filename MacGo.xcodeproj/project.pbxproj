@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		551A67C71A70C94C00BC6A51 /* AccountHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551A67C51A70C94C00BC6A51 /* AccountHistoryViewController.m */; };
 		551A67C81A70C94C00BC6A51 /* AccountHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A67C61A70C94C00BC6A51 /* AccountHistoryViewController.xib */; };
+		556A0A4E1AE84C00000ECE79 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A421AE84C00000ECE79 /* apple.png */; };
+		556A0A4F1AE84C00000ECE79 /* apple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A431AE84C00000ECE79 /* apple@2x.png */; };
+		556A0A501AE84C00000ECE79 /* apple@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A441AE84C00000ECE79 /* apple@3x.png */; };
+		556A0A511AE84C00000ECE79 /* candy.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A451AE84C00000ECE79 /* candy.png */; };
+		556A0A521AE84C00000ECE79 /* candy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A461AE84C00000ECE79 /* candy@2x.png */; };
+		556A0A531AE84C00000ECE79 /* candy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A471AE84C00000ECE79 /* candy@3x.png */; };
+		556A0A541AE84C00000ECE79 /* coffee can.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A481AE84C00000ECE79 /* coffee can.png */; };
+		556A0A551AE84C00000ECE79 /* coffee can@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A491AE84C00000ECE79 /* coffee can@2x.png */; };
+		556A0A561AE84C00000ECE79 /* coffee can@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4A1AE84C00000ECE79 /* coffee can@3x.png */; };
+		556A0A571AE84C00000ECE79 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4B1AE84C00000ECE79 /* pizza.png */; };
+		556A0A581AE84C00000ECE79 /* pizza@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4C1AE84C00000ECE79 /* pizza@2x.png */; };
+		556A0A591AE84C00000ECE79 /* pizza@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4D1AE84C00000ECE79 /* pizza@3x.png */; };
 		55709B151A1954F7001B6B2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B141A1954F7001B6B2C /* main.m */; };
 		55709B181A1954F7001B6B2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B171A1954F7001B6B2C /* AppDelegate.m */; };
 		55709B1B1A1954F7001B6B2C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B1A1A1954F7001B6B2C /* ViewController.m */; };
@@ -20,6 +32,8 @@
 		55799C481A718A3B005E94FA /* PurchaseItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55799C461A718A3B005E94FA /* PurchaseItemsViewController.xib */; };
 		55799C4B1A718B53005E94FA /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55799C4A1A718B53005E94FA /* ItemTableViewCell.m */; };
 		55799C4D1A718B5D005E94FA /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55799C4C1A718B5D005E94FA /* ItemTableViewCell.xib */; };
+		55C2889C1AD9B94C0015B485 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C2889A1AD9B94C0015B485 /* SettingsViewController.m */; };
+		55C2889D1AD9B94C0015B485 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C2889B1AD9B94C0015B485 /* SettingsViewController.xib */; };
 		55E98C6F1A70CF1D00A7C858 /* PurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E98C6E1A70CF1D00A7C858 /* PurchaseTableViewCell.m */; };
 		55E98C711A70CF8100A7C858 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E98C701A70CF8100A7C858 /* PurchaseTableViewCell.xib */; };
 		A40715625E5AC246F873C92B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 227E95E607FA23104C020602 /* libPods.a */; };
@@ -40,6 +54,18 @@
 		551A67C41A70C94C00BC6A51 /* AccountHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHistoryViewController.h; sourceTree = "<group>"; };
 		551A67C51A70C94C00BC6A51 /* AccountHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHistoryViewController.m; sourceTree = "<group>"; };
 		551A67C61A70C94C00BC6A51 /* AccountHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountHistoryViewController.xib; sourceTree = "<group>"; };
+		556A0A421AE84C00000ECE79 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple.png; path = "Assets/MacGo-Design-assets/apple.png"; sourceTree = SOURCE_ROOT; };
+		556A0A431AE84C00000ECE79 /* apple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple@2x.png"; path = "Assets/MacGo-Design-assets/apple@2x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A441AE84C00000ECE79 /* apple@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple@3x.png"; path = "Assets/MacGo-Design-assets/apple@3x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A451AE84C00000ECE79 /* candy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = candy.png; path = "Assets/MacGo-Design-assets/candy.png"; sourceTree = SOURCE_ROOT; };
+		556A0A461AE84C00000ECE79 /* candy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "candy@2x.png"; path = "Assets/MacGo-Design-assets/candy@2x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A471AE84C00000ECE79 /* candy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "candy@3x.png"; path = "Assets/MacGo-Design-assets/candy@3x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A481AE84C00000ECE79 /* coffee can.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coffee can.png"; path = "Assets/MacGo-Design-assets/coffee can.png"; sourceTree = SOURCE_ROOT; };
+		556A0A491AE84C00000ECE79 /* coffee can@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coffee can@2x.png"; path = "Assets/MacGo-Design-assets/coffee can@2x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A4A1AE84C00000ECE79 /* coffee can@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coffee can@3x.png"; path = "Assets/MacGo-Design-assets/coffee can@3x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A4B1AE84C00000ECE79 /* pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pizza.png; path = "Assets/MacGo-Design-assets/pizza.png"; sourceTree = SOURCE_ROOT; };
+		556A0A4C1AE84C00000ECE79 /* pizza@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pizza@2x.png"; path = "Assets/MacGo-Design-assets/pizza@2x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A4D1AE84C00000ECE79 /* pizza@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pizza@3x.png"; path = "Assets/MacGo-Design-assets/pizza@3x.png"; sourceTree = SOURCE_ROOT; };
 		55709B0F1A1954F7001B6B2C /* MacGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55709B131A1954F7001B6B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55709B141A1954F7001B6B2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +85,9 @@
 		55799C491A718B53005E94FA /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
 		55799C4A1A718B53005E94FA /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		55799C4C1A718B5D005E94FA /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		55C288991AD9B94C0015B485 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		55C2889A1AD9B94C0015B485 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		55C2889B1AD9B94C0015B485 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		55E98C6D1A70CF1D00A7C858 /* PurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseTableViewCell.h; sourceTree = "<group>"; };
 		55E98C6E1A70CF1D00A7C858 /* PurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseTableViewCell.m; sourceTree = "<group>"; };
 		55E98C701A70CF8100A7C858 /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
@@ -121,7 +150,7 @@
 				55709B171A1954F7001B6B2C /* AppDelegate.m */,
 				55709B191A1954F7001B6B2C /* ViewController.h */,
 				55709B1A1A1954F7001B6B2C /* ViewController.m */,
-				55799C411A7189E0005E94FA /* TableViewCells */,
+				55799C411A7189E0005E94FA /* View Controllers */,
 				55709B1C1A1954F7001B6B2C /* Main.storyboard */,
 				55709B1F1A1954F7001B6B2C /* Images.xcassets */,
 				55709B211A1954F7001B6B2C /* LaunchScreen.xib */,
@@ -133,6 +162,18 @@
 		55709B121A1954F7001B6B2C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				556A0A421AE84C00000ECE79 /* apple.png */,
+				556A0A431AE84C00000ECE79 /* apple@2x.png */,
+				556A0A441AE84C00000ECE79 /* apple@3x.png */,
+				556A0A451AE84C00000ECE79 /* candy.png */,
+				556A0A461AE84C00000ECE79 /* candy@2x.png */,
+				556A0A471AE84C00000ECE79 /* candy@3x.png */,
+				556A0A481AE84C00000ECE79 /* coffee can.png */,
+				556A0A491AE84C00000ECE79 /* coffee can@2x.png */,
+				556A0A4A1AE84C00000ECE79 /* coffee can@3x.png */,
+				556A0A4B1AE84C00000ECE79 /* pizza.png */,
+				556A0A4C1AE84C00000ECE79 /* pizza@2x.png */,
+				556A0A4D1AE84C00000ECE79 /* pizza@3x.png */,
 				55709B131A1954F7001B6B2C /* Info.plist */,
 				55709B141A1954F7001B6B2C /* main.m */,
 			);
@@ -156,13 +197,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		55799C411A7189E0005E94FA /* TableViewCells */ = {
+		55799C411A7189E0005E94FA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				55C288981AD9B92E0015B485 /* Settings */,
 				55799C421A718A12005E94FA /* Account History */,
 				55799C431A718A1D005E94FA /* Purchase Info */,
 			);
-			name = TableViewCells;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		55799C421A718A12005E94FA /* Account History */ = {
@@ -189,6 +231,16 @@
 				55799C4C1A718B5D005E94FA /* ItemTableViewCell.xib */,
 			);
 			name = "Purchase Info";
+			sourceTree = "<group>";
+		};
+		55C288981AD9B92E0015B485 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				55C288991AD9B94C0015B485 /* SettingsViewController.h */,
+				55C2889A1AD9B94C0015B485 /* SettingsViewController.m */,
+				55C2889B1AD9B94C0015B485 /* SettingsViewController.xib */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		D073594DD18B2B9D7065CFEB /* Frameworks */ = {
@@ -281,12 +333,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556A0A541AE84C00000ECE79 /* coffee can.png in Resources */,
 				55709B1E1A1954F7001B6B2C /* Main.storyboard in Resources */,
+				556A0A4F1AE84C00000ECE79 /* apple@2x.png in Resources */,
 				55709B231A1954F7001B6B2C /* LaunchScreen.xib in Resources */,
 				551A67C81A70C94C00BC6A51 /* AccountHistoryViewController.xib in Resources */,
+				556A0A501AE84C00000ECE79 /* apple@3x.png in Resources */,
+				556A0A531AE84C00000ECE79 /* candy@3x.png in Resources */,
+				55C2889D1AD9B94C0015B485 /* SettingsViewController.xib in Resources */,
+				556A0A551AE84C00000ECE79 /* coffee can@2x.png in Resources */,
+				556A0A4E1AE84C00000ECE79 /* apple.png in Resources */,
+				556A0A511AE84C00000ECE79 /* candy.png in Resources */,
 				55E98C711A70CF8100A7C858 /* PurchaseTableViewCell.xib in Resources */,
+				556A0A521AE84C00000ECE79 /* candy@2x.png in Resources */,
 				55799C481A718A3B005E94FA /* PurchaseItemsViewController.xib in Resources */,
+				556A0A571AE84C00000ECE79 /* pizza.png in Resources */,
 				55799C4D1A718B5D005E94FA /* ItemTableViewCell.xib in Resources */,
+				556A0A591AE84C00000ECE79 /* pizza@3x.png in Resources */,
+				556A0A561AE84C00000ECE79 /* coffee can@3x.png in Resources */,
+				556A0A581AE84C00000ECE79 /* pizza@2x.png in Resources */,
 				55709B201A1954F7001B6B2C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +406,7 @@
 				55709B1B1A1954F7001B6B2C /* ViewController.m in Sources */,
 				55709B181A1954F7001B6B2C /* AppDelegate.m in Sources */,
 				55799C471A718A3B005E94FA /* PurchaseItemsViewController.m in Sources */,
+				55C2889C1AD9B94C0015B485 /* SettingsViewController.m in Sources */,
 				55E98C6F1A70CF1D00A7C858 /* PurchaseTableViewCell.m in Sources */,
 				55709B151A1954F7001B6B2C /* main.m in Sources */,
 				55799C4B1A718B53005E94FA /* ItemTableViewCell.m in Sources */,

@@ -25,11 +25,13 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [titleLabel.font fontWithSize:21];
+    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:21];
     titleLabel.text = @"History";
-    self.navigationItem.titleView = titleLabel;
     
+    self.navigationItem.titleView = titleLabel;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(didTapClose:)];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                                     NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:21]} forState:UIControlStateNormal];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PurchaseTableViewCell" bundle:nil] forCellReuseIdentifier:@"PurchaseTableViewCell"];
 
@@ -47,7 +49,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                                      NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:21]}];
 }
 
 - (IBAction)didTapClose:(id)sender{
@@ -56,7 +59,7 @@
 
 #pragma mark - UITableViewDatasource Implementation
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 53.f;
+    return 61.f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

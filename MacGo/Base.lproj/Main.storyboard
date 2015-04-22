@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$212.59" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HST-Tv-8lH">
-                                        <rect key="frame" x="46" y="63" width="108.5" height="35"/>
+                                        <rect key="frame" x="46" y="63" width="109" height="35"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -70,16 +70,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-Nf-uhy">
-                                <rect key="frame" x="190" y="50" width="221.5" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" placeholder="YES" id="OAM-ad-lwN"/>
-                                    <constraint firstAttribute="width" constant="222" placeholder="YES" id="ohR-GZ-cq5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ni-8l-E80">
                                 <rect key="frame" x="238" y="418" width="125" height="35"/>
                                 <constraints>
@@ -114,18 +104,125 @@
                                     <action selector="didTapAccountHistory:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pKh-p3-sB9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfE-dc-qAC">
+                                <rect key="frame" x="189" y="50" width="222" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="9xY-OP-S3u"/>
+                                    <constraint firstAttribute="width" constant="222" id="i7x-Vr-k8V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSettingsButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iFs-be-KNw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltB-wS-DNl">
+                                <rect key="frame" x="160" y="160" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FVC-iL-3Er"/>
+                                    <constraint firstAttribute="width" constant="60" id="GTk-R7-Uad"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" image="pizza.png">
+                                    <color key="titleColor" red="0.79215686269999996" green="0.72549019609999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapOnStats:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Hkp-Ga-tBP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QA5-sh-PqY">
+                                <rect key="frame" x="380" y="160" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="L5z-zE-p89"/>
+                                    <constraint firstAttribute="width" constant="60" id="cva-Fi-2NW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" image="coffee can.png">
+                                    <color key="titleColor" red="0.79215686269999996" green="0.72549019609999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapOnStats:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uiy-5g-VHf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPl-ZC-wgJ">
+                                <rect key="frame" x="160" y="380" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="KWt-k9-AaM"/>
+                                    <constraint firstAttribute="height" constant="60" id="zot-iU-Imb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" image="apple.png">
+                                    <color key="titleColor" red="0.79215686269999996" green="0.72549019609999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapOnStats:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="v3F-DG-APR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6f-nC-2aq">
+                                <rect key="frame" x="380" y="380" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7k9-nC-WF9"/>
+                                    <constraint firstAttribute="width" constant="60" id="fBv-NU-dVm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" image="candy.png">
+                                    <color key="titleColor" red="0.79215686269999996" green="0.72549019609999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapOnStats:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9W9-Dx-sDM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.047058823529411764" green="0.10196078431372549" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="yfE-dc-qAC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="2pR-hZ-YGi"/>
+                            <constraint firstItem="deI-Id-vao" firstAttribute="top" secondItem="ltB-wS-DNl" secondAttribute="bottom" constant="-20" id="57t-j1-Nfx"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xIt-MJ-XFl" secondAttribute="bottom" id="5Jz-cQ-Rl2"/>
                             <constraint firstItem="xIt-MJ-XFl" firstAttribute="centerX" secondItem="0Ni-8l-E80" secondAttribute="centerX" id="5O2-Zl-lnf"/>
                             <constraint firstItem="0Ni-8l-E80" firstAttribute="centerX" secondItem="deI-Id-vao" secondAttribute="centerX" id="Cjb-U3-kwd"/>
                             <constraint firstItem="0Ni-8l-E80" firstAttribute="top" secondItem="WkI-Ro-Ne5" secondAttribute="bottom" constant="18" id="D3W-le-tP6"/>
+                            <constraint firstItem="deI-Id-vao" firstAttribute="leading" secondItem="OPl-ZC-wgJ" secondAttribute="trailing" constant="-20" id="FbS-dV-igH"/>
                             <constraint firstItem="xIt-MJ-XFl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="GR3-vT-MHO"/>
+                            <constraint firstItem="s6f-nC-2aq" firstAttribute="top" secondItem="deI-Id-vao" secondAttribute="bottom" constant="-20" id="JhU-lA-jec"/>
+                            <constraint firstItem="s6f-nC-2aq" firstAttribute="leading" secondItem="deI-Id-vao" secondAttribute="trailing" constant="-20" id="Jk6-dQ-nNg"/>
+                            <constraint firstItem="OPl-ZC-wgJ" firstAttribute="top" secondItem="deI-Id-vao" secondAttribute="bottom" constant="-20" id="Ktl-aE-9EC"/>
+                            <constraint firstItem="deI-Id-vao" firstAttribute="leading" secondItem="ltB-wS-DNl" secondAttribute="trailing" constant="-20" id="PJv-du-6nr"/>
                             <constraint firstAttribute="centerY" secondItem="WkI-Ro-Ne5" secondAttribute="centerY" id="Q1X-yE-gXD"/>
                             <constraint firstAttribute="centerX" secondItem="WkI-Ro-Ne5" secondAttribute="centerX" id="iDi-Ug-RKe"/>
-                            <constraint firstAttribute="centerX" secondItem="RBV-Nf-uhy" secondAttribute="centerX" id="oFE-lX-aHi"/>
-                            <constraint firstItem="RBV-Nf-uhy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="pXX-BQ-Pda"/>
+                            <constraint firstItem="QA5-sh-PqY" firstAttribute="leading" secondItem="deI-Id-vao" secondAttribute="trailing" constant="-20" id="sPv-FU-32r"/>
+                            <constraint firstItem="deI-Id-vao" firstAttribute="top" secondItem="QA5-sh-PqY" secondAttribute="bottom" constant="-20" id="t6h-Aa-DXs"/>
+                            <constraint firstAttribute="centerX" secondItem="yfE-dc-qAC" secondAttribute="centerX" id="wRd-s6-TLQ"/>
                             <constraint firstAttribute="trailing" secondItem="xIt-MJ-XFl" secondAttribute="trailing" id="yJv-g8-I5Y"/>
                         </constraints>
                     </view>
@@ -136,12 +233,18 @@
                         <outlet property="makePurchaseButton" destination="deI-Id-vao" id="SoU-s1-HBy"/>
                         <outlet property="qrCodeImageView" destination="lqv-mP-isB" id="1MB-cL-Edw"/>
                         <outlet property="refreshButton" destination="0Ni-8l-E80" id="1hu-Sy-bSq"/>
-                        <outlet property="titleLabel" destination="RBV-Nf-uhy" id="cKg-zb-pwE"/>
+                        <outlet property="titleButton" destination="yfE-dc-qAC" id="WNF-T3-9LO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="398"/>
+            <point key="canvasLocation" x="76" y="409"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="apple.png" width="23" height="27"/>
+        <image name="candy.png" width="31" height="25"/>
+        <image name="coffee can.png" width="22" height="24"/>
+        <image name="pizza.png" width="27" height="25"/>
+    </resources>
 </document>

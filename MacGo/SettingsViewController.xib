@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-va-fg4">
+                    <rect key="frame" x="30" y="124" width="570" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="wKZ-dQ-Unw"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRs-BH-dF4">
+                    <rect key="frame" x="20" y="80" width="160" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="Turn Passcode On">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="turnPasscodeOn:" destination="-1" eventType="touchUpInside" id="g3Z-da-hzJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8or-q6-nuf">
+                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                    <color key="backgroundColor" red="0.84705882352941175" green="0.79607843137254897" blue="0.59215686274509804" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="LQM-Oi-T4N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logout:" destination="-1" eventType="touchUpInside" id="UZt-zH-G26"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EW3-Yq-T31">
+                    <rect key="frame" x="20" y="133" width="159" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="Change Passcode">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="changePasscode:" destination="-1" eventType="touchUpInside" id="7az-It-XwI"/>
+                        <action selector="turnPasscodeOn:" destination="-1" eventType="touchUpInside" id="JxQ-ff-wpU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.047058823530000002" green="0.1019607843" blue="0.1058823529" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8or-q6-nuf" secondAttribute="trailing" id="34Z-BZ-PKg"/>
+                <constraint firstItem="RRs-BH-dF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="9Ho-Kr-NoU"/>
+                <constraint firstAttribute="trailing" secondItem="HWh-va-fg4" secondAttribute="trailing" id="JPB-C9-0R8"/>
+                <constraint firstAttribute="bottom" secondItem="8or-q6-nuf" secondAttribute="bottom" id="KBC-W3-daP"/>
+                <constraint firstItem="RRs-BH-dF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="MSo-xB-Kgy"/>
+                <constraint firstItem="HWh-va-fg4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="PjW-x9-PHe"/>
+                <constraint firstItem="EW3-Yq-T31" firstAttribute="top" secondItem="HWh-va-fg4" secondAttribute="bottom" constant="8" id="Psy-ZB-GRN"/>
+                <constraint firstItem="HWh-va-fg4" firstAttribute="top" secondItem="RRs-BH-dF4" secondAttribute="bottom" constant="8" id="gbw-bq-qP2"/>
+                <constraint firstItem="8or-q6-nuf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kN6-PC-aDN"/>
+                <constraint firstItem="EW3-Yq-T31" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="sYd-N6-neD"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>
