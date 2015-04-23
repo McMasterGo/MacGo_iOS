@@ -31,16 +31,16 @@
 
 - (void)setPurchaseItem:(PFObject *)purchaseItem{
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 24)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 24)];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = [titleLabel.font fontWithSize:21];
     titleLabel.text = purchaseItem[@"Description"];
     [view addSubview:titleLabel];
     
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 24, 100, 20)];
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 24, 200, 20)];
     dateLabel.textColor = [UIColor whiteColor];
     dateLabel.textAlignment = NSTextAlignmentCenter;
     dateLabel.font = [dateLabel.font fontWithSize:14];
@@ -49,6 +49,21 @@
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterNoStyle];
     dateLabel.text = [formatter stringFromDate:purchaseItem.createdAt];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:purchaseItem.createdAt];
+    NSInteger hour = [components hour];
+    NSString *end = @"am";
+    if (hour > 12) {
+        hour = hour - 12;
+        end = @"pm";
+    }
+    
+    dateLabel.text = [NSString stringWithFormat:@"%@ @%lu%@", dateLabel.text, hour, end];
+    
+    
+    
+    
     [view addSubview:dateLabel];
     
     self.navigationItem.titleView = view;

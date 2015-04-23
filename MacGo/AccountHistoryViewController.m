@@ -73,7 +73,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UIColor *mainColor = indexPath.row%2? [UIColor whiteColor] : [UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1];
-    
     cell.storeName.textColor = mainColor;
     cell.totalCost.textColor = mainColor;
     cell.purchaseDate.textColor = mainColor;
@@ -88,6 +87,18 @@
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterNoStyle];
     cell.purchaseDate.text = [formatter stringFromDate:purchase.createdAt];
+    
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:purchase.createdAt];
+    NSInteger hour = [components hour];
+    NSString *end = @"am";
+    if (hour > 12) {
+        hour = hour - 12;
+        end = @"pm";
+    }
+    
+    cell.purchaseDate.text = [NSString stringWithFormat:@"%@ @%lu%@", cell.purchaseDate.text, hour, end];
     
     return cell;
     
