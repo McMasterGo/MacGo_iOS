@@ -13,6 +13,7 @@
 #import "ViewController.h"
 #import "AccountHistoryViewController.h"
 #import "SettingsViewController.h"
+#import "LTHPasscodeViewController.h"
 
 @interface ViewController () <PFLogInViewControllerDelegate, SettingsProtocol>
 
@@ -30,6 +31,8 @@
 
 @property (strong, nonatomic) NSTimer *closePurchaseTimer;
 @property (strong, nonatomic) PFObject *token;
+
+@property (assign, nonatomic) BOOL didShowPasscode;
 
 @end
 
@@ -64,13 +67,26 @@
     }
     
 }
-
 - (void)viewDidAppear:(BOOL)animated{
     
     if (![PFUser currentUser]) {
         [self showLoginView];
     }else{
         [self populateUserInformation];
+        
+        if (!_didShowPasscode) {
+            [LTHPasscodeViewController useKeychain:NO];
+            if ([LTHPasscodeViewController doesPasscodeExist]) {
+                [[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:YES
+                                                                         withLogout:NO
+                                                                     andLogoutTitle:nil];
+                _didShowPasscode = YES;
+                
+            }
+        }else{
+            _didShowPasscode = YES;
+        }
+        
     }
     
 }
@@ -223,7 +239,7 @@
     UIImage *image = [button imageForState:UIControlStateNormal];
     [button setImage:nil forState:UIControlStateNormal];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [button setTitle:@"" forState:UIControlStateNormal];
         [button setImage:image forState:UIControlStateNormal];
     });

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "LTHPasscodeViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,18 @@
     [Parse setApplicationId:@"nTERmyCRrA1y3B8LhGQiXP38lx8wu2Mrdtpppwhr"
                   clientKey:@"0F15Y4JqxGMPeRfDfsjFML26Yu3I5oNkA6KDzcME"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [[LTHPasscodeViewController sharedUser] setBackgroundColor:[UIColor colorWithRed:0.05 green:0.1 blue:0.11 alpha:1]];
+    [[LTHPasscodeViewController sharedUser] setLabelTextColor:[UIColor whiteColor]];
+    [[LTHPasscodeViewController sharedUser] setPasscodeTextColor:[UIColor whiteColor]];
+    
+    UINavigationController *navigationController = [LTHPasscodeViewController sharedUser].navigationController;
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.82 green:0.76 blue:0.49 alpha:1];
+    navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    [navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                                      NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:21]}];
+    
     
     return YES;
 }

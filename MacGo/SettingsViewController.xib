@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController">
             <connections>
+                <outlet property="changePasscode" destination="EW3-Yq-T31" id="W19-Ca-wYD"/>
+                <outlet property="togglePasscode" destination="boe-3q-YyN" id="MaJ-mA-1BM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,16 +23,6 @@
                         <constraint firstAttribute="height" constant="1" id="wKZ-dQ-Unw"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRs-BH-dF4">
-                    <rect key="frame" x="20" y="80" width="160" height="36"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                    <state key="normal" title="Turn Passcode On">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="turnPasscodeOn:" destination="-1" eventType="touchUpInside" id="g3Z-da-hzJ"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8or-q6-nuf">
                     <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                     <color key="backgroundColor" red="0.84705882352941175" green="0.79607843137254897" blue="0.59215686274509804" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,13 +48,27 @@
                     </state>
                     <connections>
                         <action selector="changePasscode:" destination="-1" eventType="touchUpInside" id="7az-It-XwI"/>
-                        <action selector="turnPasscodeOn:" destination="-1" eventType="touchUpInside" id="JxQ-ff-wpU"/>
                     </connections>
+                </button>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="boe-3q-YyN">
+                    <rect key="frame" x="531" y="82" width="51" height="31"/>
+                    <connections>
+                        <action selector="turnPasscodeOn:" destination="-1" eventType="valueChanged" id="C65-cP-aJx"/>
+                    </connections>
+                </switch>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRs-BH-dF4">
+                    <rect key="frame" x="20" y="80" width="86" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="Passcode">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.047058823530000002" green="0.1019607843" blue="0.1058823529" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8or-q6-nuf" secondAttribute="trailing" id="34Z-BZ-PKg"/>
+                <constraint firstItem="boe-3q-YyN" firstAttribute="centerY" secondItem="RRs-BH-dF4" secondAttribute="centerY" id="73r-PO-XPB"/>
+                <constraint firstAttribute="trailing" secondItem="boe-3q-YyN" secondAttribute="trailing" constant="20" id="81m-jV-gAz"/>
                 <constraint firstItem="RRs-BH-dF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="9Ho-Kr-NoU"/>
                 <constraint firstAttribute="trailing" secondItem="HWh-va-fg4" secondAttribute="trailing" id="JPB-C9-0R8"/>
                 <constraint firstAttribute="bottom" secondItem="8or-q6-nuf" secondAttribute="bottom" id="KBC-W3-daP"/>

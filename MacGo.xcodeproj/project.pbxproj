@@ -21,6 +21,8 @@
 		556A0A571AE84C00000ECE79 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4B1AE84C00000ECE79 /* pizza.png */; };
 		556A0A581AE84C00000ECE79 /* pizza@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4C1AE84C00000ECE79 /* pizza@2x.png */; };
 		556A0A591AE84C00000ECE79 /* pizza@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556A0A4D1AE84C00000ECE79 /* pizza@3x.png */; };
+		556A0A651AE88550000ECE79 /* LTHKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A0A621AE88550000ECE79 /* LTHKeychainUtils.m */; };
+		556A0A661AE88550000ECE79 /* LTHPasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A0A641AE88550000ECE79 /* LTHPasscodeViewController.m */; };
 		55709B151A1954F7001B6B2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B141A1954F7001B6B2C /* main.m */; };
 		55709B181A1954F7001B6B2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B171A1954F7001B6B2C /* AppDelegate.m */; };
 		55709B1B1A1954F7001B6B2C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55709B1A1A1954F7001B6B2C /* ViewController.m */; };
@@ -66,6 +68,10 @@
 		556A0A4B1AE84C00000ECE79 /* pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pizza.png; path = "Assets/MacGo-Design-assets/pizza.png"; sourceTree = SOURCE_ROOT; };
 		556A0A4C1AE84C00000ECE79 /* pizza@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pizza@2x.png"; path = "Assets/MacGo-Design-assets/pizza@2x.png"; sourceTree = SOURCE_ROOT; };
 		556A0A4D1AE84C00000ECE79 /* pizza@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pizza@3x.png"; path = "Assets/MacGo-Design-assets/pizza@3x.png"; sourceTree = SOURCE_ROOT; };
+		556A0A611AE88550000ECE79 /* LTHKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTHKeychainUtils.h; sourceTree = "<group>"; };
+		556A0A621AE88550000ECE79 /* LTHKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTHKeychainUtils.m; sourceTree = "<group>"; };
+		556A0A631AE88550000ECE79 /* LTHPasscodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTHPasscodeViewController.h; sourceTree = "<group>"; };
+		556A0A641AE88550000ECE79 /* LTHPasscodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTHPasscodeViewController.m; sourceTree = "<group>"; };
 		55709B0F1A1954F7001B6B2C /* MacGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55709B131A1954F7001B6B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55709B141A1954F7001B6B2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -200,6 +206,10 @@
 		55799C411A7189E0005E94FA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				556A0A611AE88550000ECE79 /* LTHKeychainUtils.h */,
+				556A0A621AE88550000ECE79 /* LTHKeychainUtils.m */,
+				556A0A631AE88550000ECE79 /* LTHPasscodeViewController.h */,
+				556A0A641AE88550000ECE79 /* LTHPasscodeViewController.m */,
 				55C288981AD9B92E0015B485 /* Settings */,
 				55799C421A718A12005E94FA /* Account History */,
 				55799C431A718A1D005E94FA /* Purchase Info */,
@@ -408,9 +418,11 @@
 				55799C471A718A3B005E94FA /* PurchaseItemsViewController.m in Sources */,
 				55C2889C1AD9B94C0015B485 /* SettingsViewController.m in Sources */,
 				55E98C6F1A70CF1D00A7C858 /* PurchaseTableViewCell.m in Sources */,
+				556A0A651AE88550000ECE79 /* LTHKeychainUtils.m in Sources */,
 				55709B151A1954F7001B6B2C /* main.m in Sources */,
 				55799C4B1A718B53005E94FA /* ItemTableViewCell.m in Sources */,
 				551A67C71A70C94C00BC6A51 /* AccountHistoryViewController.m in Sources */,
+				556A0A661AE88550000ECE79 /* LTHPasscodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
